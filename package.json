@@ -1,0 +1,46 @@
+{
+  "name": "api.adamperyman.com",
+  "version": "0.0.1",
+  "description": "GraphQL API for adamperyman.com",
+  "main": "index.js",
+  "repository": "git@github.com:x0bile/api.adamperyman.com.git",
+  "author": "Adam Peryman <adam.peryman@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "clean:big": "clear && yarn clean && rimraf ./node_modules && rm yarn.lock",
+    "reset": "yarn clean:big && yarn && yarn build",
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules -- .",
+    "test": "echo 'Hello, Test World!'",
+    "build": "babel src -s -d lib --presets @babel/env",
+    "run:dev": ". ./.env && nodemon -e js,json,graphql src --exec babel-node --presets @babel/env",
+    "run:prod": "nodemon lib"
+  },
+  "dependencies": {
+    "ap-logger": "^0.1.7",
+    "domain.adamperyman.com": "^0.1.14",
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.12.3",
+    "graphql-tools": "^2.14.1",
+    "mongoose": "^5.0.0-rc0",
+    "nodemon": "^1.14.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.36",
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/node": "^7.0.0-beta.36",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.36",
+    "@babel/polyfill": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
+    "babel-eslint": "^8.1.2",
+    "eslint": "^4.14.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "rimraf": "^2.6.2"
+  }
+}
