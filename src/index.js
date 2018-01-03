@@ -5,7 +5,7 @@ import graphqlHTTP from 'express-graphql'
 import { makeExecutableSchema } from 'graphql-tools'
 import mongoose from 'mongoose'
 
-import logger from 'ap-logger'
+import logger from 'happy-log'
 
 import resolvers from './resolvers'
 
