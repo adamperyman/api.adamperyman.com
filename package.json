@@ -12,12 +12,12 @@
     "reset": "yarn clean:big && yarn && yarn build",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules -- .",
     "test": "echo 'Hello, Test World!'",
-    "build": "babel src -s -d lib --presets @babel/env",
+    "build": "babel src -s -d lib --presets @babel/env --copy-files",
     "run:dev": ". ./.env && nodemon -e js,json,graphql src --exec babel-node --presets @babel/env",
-    "run:prod": "nodemon lib"
+    "run:prod": "nodemon index.js"
   },
   "dependencies": {
-    "ap-logger": "^0.1.7",
+    "ap-logger": "^0.1.8",
     "domain.adamperyman.com": "^0.1.14",
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
