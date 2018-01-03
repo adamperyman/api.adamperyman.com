@@ -16,12 +16,12 @@ script:
   - yarn lint
   - yarn build
   - yarn test
-  - docker build -t adamperyman/api.adamperyman.com:$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER .
+  - docker build -t adamperyman/api.adamperyman.com:$TRAVIS_BRANCH .
   - docker build -t adamperyman/api.adamperyman.com:latest .
 before_deploy:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 deploy:
   - provider: script
-    script: docker push adamperyman/api.adamperyman.com:$TRAVIS_BRANCH && docker push adamperyman/api.adamperyman.com:$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
+    script: docker push adamperyman/api.adamperyman.com:$TRAVIS_BRANCH && docker push adamperyman/api.adamperyman.com:latest
     on:
       branch: "*"
