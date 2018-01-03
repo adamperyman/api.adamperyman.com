@@ -10,6 +10,7 @@ import logger from 'happy-log'
 import resolvers from './resolvers'
 
 const MONGO_URL = process.env.MONGO_URL
+const DEFAULT_ROUTE = 'data'
 
 if (!MONGO_URL) {
   logger.error('MONGO_URL is undefined.')
@@ -30,14 +31,14 @@ const start = async () => {
 
   app.use(logger.expressMiddleware)
 
-  app.use('/graphql', graphqlHTTP({
+  app.use(`/${DEFAULT_ROUTE}`, graphqlHTTP({
     schema,
     graphiql: !isProduction
   }))
 
   app.listen(4000)
 
-  logger.info('Running a GraphQL API server at localhost:4000/graphql')
+  logger.info(`Running a GraphQL API server at localhost:4000/${DEFAULT_ROUTE}`)
 }
 
 start()
