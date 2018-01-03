@@ -22,6 +22,6 @@ before_deploy:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 deploy:
   - provider: script
-  script: docker push adamperyman/api.adamperyman.com:$TRAVIS_BRANCH && docker push adamperyman/api.adamperyman.com:$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
-  on:
-    branch: "*"
+    script: docker push adamperyman/api.adamperyman.com:$TRAVIS_BRANCH && docker push adamperyman/api.adamperyman.com:$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
+    on:
+      branch: "*"
