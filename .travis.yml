@@ -16,8 +16,8 @@ script:
   - yarn lint
   - yarn build
   - yarn test
-  - docker build -t adamperyman/api.adamperyman.com:$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
-  - docker build -t adamperyman/api.adamperyman.com:latest
+  - docker build -t adamperyman/api.adamperyman.com:$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER .
+  - docker build -t adamperyman/api.adamperyman.com:latest .
 before_deploy:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 deploy:
